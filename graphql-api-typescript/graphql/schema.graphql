@@ -1,0 +1,13 @@
+type Query {
+    teams: [Team]
+}
+
+type Mutation {
+    incrementPoints(id: ID!): Team
+}
+
+type Team {
+    id: ID
+    name: String
+    points: Int
+}

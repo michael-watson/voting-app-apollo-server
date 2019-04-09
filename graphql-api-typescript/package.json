@@ -1,0 +1,27 @@
+{
+  "name": "graphql-api-typescript",
+  "description": "",
+  "version": "0.1.0",
+  "scripts": {
+    "copy:schema": "cp graphql/schema.graphql dist/graphql",
+    "build": "tsc && npm run copy:schema",
+    "watch": "tsc -w && npm run copy:schema",
+    "prestart": "npm run build && func extensions install",
+    "start:host": "func start",
+    "start": "npm run start:host & npm run watch",
+    "build:production": "npm run prestart && npm prune --production",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "apollo-datasource-rest": "^0.3.2",
+    "apollo-server": "^2.5.0-alpha.4",
+    "apollo-server-azure-functions": "^2.5.0-alpha.4",
+    "graphql": "^14.2.1"
+  },
+  "devDependencies": {
+    "@azure/functions": "^1.0.1-beta2",
+    "@types/graphql": "^14.2.0",
+    "@types/node": "^11.13.2",
+    "typescript": "^3.3.3"
+  }
+}
